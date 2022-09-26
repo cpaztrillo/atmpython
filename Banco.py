@@ -6,7 +6,7 @@ from Cuenta import *
 
 class MyEncoder(JSONEncoder):
     def default(self, object):
-        if isinstance(object, Banco) or isinstance(object, Tarjeta) or isinstance(object, Cliente) or isinstance(object, Cuenta) :
+        if isinstance(object, Banco) or isinstance(object, Tarjeta) or isinstance(object, Operacion) or isinstance(object, Cliente) or isinstance(object, Cuenta) :
             print(type(object))
             return object.__dict__
         else:
