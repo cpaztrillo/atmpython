@@ -25,3 +25,19 @@ class Cuenta:
         })
         self.operaciones.append(operacion)
         return True
+
+    def transferencia(self, monto, cuentaDestino):
+        if(self.moneda!=cuentaDestino.moneda):
+            return False
+        if self.saldo < monto:
+            return False
+        self.saldo = self.saldo - monto
+        cuentaDestino.saldo = cuentaDestino.saldo + monto
+        operacion = Transferencia({
+            "fecha"  : datetime.datetime.now().strftime("%c"),
+            "moneda" : moneda,
+            "monto"  : monto,
+            "destino": cuentaDestino.numero
+        })
+        self.operaciones.append(operacion)
+        return True
