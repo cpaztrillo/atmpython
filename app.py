@@ -13,13 +13,13 @@ def hello():
     return '<h1>Hello, World!</h1>'
 
 def load():
-    f = open('/Users/cpaztrillo/banco.json')
+    f = open('./banco.json')
     b = Banco(json.load(f)) 
     f.close()
     return b
 
 def save(b):
-    db = open('/Users/cpaztrillo/banco.json', 'w') 
+    db = open('./banco.json', 'w') 
     db.write(MyEncoder().encode(b))
     db.close()
 
